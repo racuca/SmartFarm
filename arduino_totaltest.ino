@@ -54,7 +54,7 @@ void setup() {
 
   sendData("AT+RST\r\n", 5000, DEBUG); // Reset the ESP8266
   sendData("AT+CWMODE=1\r\n", 5000, DEBUG); //Set station mode Operation
-  sendData("AT+CWJAP=\"olleh_WiFi_F6C4\",\"0000006394\"\r\n", 5000, DEBUG);//Enter your WiFi network's SSID and Password.
+  sendData("AT+CWJAP=\"ssid\",\"password\"\r\n", 5000, DEBUG);//Enter your WiFi network's SSID and Password.
   while(!ESPserial.find("OK")) 
   {
     Serial.println("Waiting");
