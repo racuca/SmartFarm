@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <!-- pybo CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Hello, pybo!</title>
+</head>
+<body>
+  <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<h2> <i> WiFi Controlled LED using Arduino and ESP8266 </i> </h2>
+<h4> <i> Enter the IP address of ESP8266 </i> </h4>
+<div style="margin: 0; width:400px; height:30px;">
+<FORM NAME="form" ACTION="" METHOD="GET">
+ESP8266 IP Address:
+<INPUT TYPE="text" NAME="inputbox" VALUE="" />
+</FORM>
+</div>
+<h3> Click to toggle LED! </h3>
+<input type="button" NAME="butname" value="Turn ON LED" />
+<p>STATUS: LED is OFF!</p>
+
+<script>
+$.ajaxSetup({timeout:1000});
+btn = document.querySelector('input[name="butname"]');
+txt = document.querySelector('p');
+btn.addEventListener('click', led1);
+
+function led1()
+{
+	var val1 = 'OFF';
+	if (btn.value === 'Turn OFF LED')
+	{
+	    btn.value = 'Turn ON LED';
+	    val1 = 'OFF';
+	    txt.textContent = 'STATUS: LED is OFF!';
+	}
+	else
+	{
+    	btn.value = 'Turn OFF LED';
+	    val1 = 'ON';
+    	txt.textContent = 'STATUS: LED is ON!';
+	}
+	TextVar = form.inputbox.value;
+	ArduinoVar = "http://" + TextVar + ":80/";
+	alert(ArduinoVar);
+	$.get( ArduinoVar, {led: val1})	;
+	{Connection: close};
+}
+</script>
+
+
+
+  <!-- 기본 템플릿 안에 삽입될 내용 End -->
+</body>
+
+</html>
