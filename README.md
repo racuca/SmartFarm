@@ -4,6 +4,9 @@ This is DIY smartfarm solution for individuals with arduino nano and ESP8266Ex W
 Also The smartfarm book is provided in wikidocs.
 https://wikidocs.net/book/6660
 
-book's sources are provided. 
+
+sources coded in the book are provided. 
+
+sqlite db is not yet connected. I will code it later.
 
 
